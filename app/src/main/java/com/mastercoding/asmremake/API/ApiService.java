@@ -3,6 +3,7 @@ package com.mastercoding.asmremake.API;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mastercoding.asmremake.Model.Phone;
+import com.mastercoding.asmremake.Model.User;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -23,7 +25,7 @@ public interface ApiService {
     // ip may ao connect localhost: 10.0.2.2
     // genymontion: 10.0.3.2
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8000/")
+            .baseUrl("http://10.0.2.2:3000/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -39,5 +41,11 @@ public interface ApiService {
 
     @DELETE("/phones/{id}")
     Call<Void> deletePhones(@Path("id") String id);
+
+    @POST("registerNewUser")
+    Call<List<User>> registerUser(@Body User user);
+
+    @POST("login")
+    Call<List<User>> loginUser(@Body User user);
 
 }

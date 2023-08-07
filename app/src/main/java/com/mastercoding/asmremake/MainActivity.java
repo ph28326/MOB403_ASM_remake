@@ -83,14 +83,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.add_phone, null);
         builder.setView(dialogView);
-        builder.setView(dialogView);
 
         final EditText edtName = dialogView.findViewById(R.id.edtName);
         final EditText edtBrand = dialogView.findViewById(R.id.edtBrand);
         final EditText edtPrice = dialogView.findViewById(R.id.edtPrice);
         final EditText edtQuantity = dialogView.findViewById(R.id.edtquantiny);
         final Button btnAdd = dialogView.findViewById(R.id.btnAdd);
-        final Button btnCanel = dialogView.findViewById(R.id.btnCancel);
+        final Button btnCancel = dialogView.findViewById(R.id.btnCancel);
 
 
         final AlertDialog dialog = builder.create();
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialog.dismiss();
             }
         });
-        btnCanel.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v1) {
                 dialog.dismiss();
